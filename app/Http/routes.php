@@ -27,6 +27,10 @@ Route::get('/', function () {
             ->select('nombre_multimedia','tipo')
             ->where('id_publicacion',$pubgob[$i]->id)
             ->first();
+        
+        if (Storage::disk('imagenes')->exists($imgfirst->nombre_multimedia)===false) {
+            return "error no se encuentra la imagen ".$imgfirst->nombre_multimedia;
+        }
        	//agregamos el atributo al objeto
         $pubgob[$i]->img=base64_encode(Storage::disk('imagenes')->get($imgfirst->nombre_multimedia));
         $pubgob[$i]->tipo=$imgfirst->tipo;
