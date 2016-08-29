@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/','HomeController@welcome');
+Route::get('/','welcomecontroller@welcome');
 
 /*Route::auth();*//*ruta creada por el comando make:auth */
-/*Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);*//*desactivado para convinacion de teclas*/
+/*Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);//*desactivado para convinacion de teclas*/
 
 /*si se quiere se quita todas estas rutas y se descomenta route::auth ()*/
 Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
