@@ -98,9 +98,9 @@
                 <!-- Start title section -->
 
                 <div class="title">
-                    <h1>{{$pubgob[0]->pagina}}</h1>
+                    <h1>{{$pubgob[0]['pagina']}}</h1>
                     <!-- Section's title goes here -->
-                    <p>Pagina Oficial de {{$pubgob[0]->pagina}} del departamento de Potosi</p>
+                    <p>Pagina Oficial de {{$pubgob[0]['pagina']}} del departamento de Potosi</p>
                     <!--Simple description for section goes here. -->
                 </div>
                 <div class="row-fluid">
@@ -160,31 +160,31 @@
                 <!-- Start details for portfolio project 1 -->
                 <div id="single-project">
                     @foreach($pubgob as $pg)
-                    <div id="{{str_replace(' ', '_', $pg->titulo)}}" class="toggleDiv row-fluid single-project">
+                    <div id="{{str_replace(' ', '_', $pg['titulo'])}}" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="data:image/jpeg;base64,{{$pg->img}}">
+                            <img src="data:image/jpeg;base64,{{$pg['img']}}">
                         </div>
                         <div class="span6">
                             <div class="project-description">
                                 <div class="project-title clearfix">
-                                    <h3>{{$pg->titulo}}</h3>
+                                    <h3>{{$pg['titulo']}}</h3>
                                     <span class="show_hide close">
                                         <i class="icon-cancel"></i>
                                     </span>
                                 </div>
                                 <div class="project-info">
                                     <div>
-                                        <span>Titulo</span>{{$pg->titulo}}e</div>
+                                        <span>Titulo</span>{{$pg['titulo']}}e</div>
                                     <div>
-                                        <span>Publicacion</span>{{$pg->created_at}}</div>
+                                        <span>Publicacion</span>{{$pg['created_at']}}</div>
                                     <div>
                                         <span>Descripcion</span>Album</div>
                                     <div>
                                         <span>Link</span>http://examplecomp.com</div>
                                 </div>
-                                <p>{!! $pg->contenido!!}</p>
+                                {{--<p>{!! $pg->contenido!!}</p>--}}
                                 <center>
-                                   <button class="button button-sp"><a href="">Leer Mas</a></button>
+                                   <button class="button button-sp"><a href="{{url('articulo/'.$pg['id'])}}">Leer Mas</a></button>
                                 </center>
                             </div>
                         </div>
@@ -419,11 +419,11 @@
                         @foreach($pubgob as $p)
                         <li class="span4 mix web">
                             <div class="thumbnail">
-                                <img src="data:image/jpeg;base64,{{$p->img}}" style="width:640px;height:230px;">
-                                <a href="#single-project" class="more show_hide" rel="#{{str_replace(' ', '_', $p->titulo)}}">
+                                <img src="data:image/jpeg;base64,{{$p['img']}}" style="width:640px;height:230px;">
+                                <a href="#single-project" class="more show_hide" rel="#{{str_replace(' ', '_', $p['titulo'])}}">
                                     <i class="icon-plus"></i>
                                 </a>
-                                <h3>{{$p->titulo}}</h3>
+                                <h3>{{$p['titulo']}}</h3>
                                 <p>Album</p>
                                 <div class="mask"></div>
                             </div>

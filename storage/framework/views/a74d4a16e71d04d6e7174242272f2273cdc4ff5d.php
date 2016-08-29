@@ -96,7 +96,7 @@
                                     <a class="mp-back" href="#">Atras</a>
                                     <ul>
                                     <?php foreach($sitios as $s): ?>
-                                        <li><a href="<?php echo e(url('sitio/'.$s->id)); ?>"><?php echo e($s->nombre_sitio); ?></a></li>
+                                        <li><a href="<?php echo e(url('sitio/'.$s['id'])); ?>"><?php echo e($s['nombre_sitio']); ?></a></li>
                                     <?php endforeach; ?>
                                     </ul>
                                 </div>

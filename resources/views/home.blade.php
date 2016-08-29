@@ -349,7 +349,7 @@
           </a>
           <ul class="treeview-menu">
           @foreach($sitios as $s)
-            <li><a href="{{url('control-pagina/'.$s->id)}}" class="paginacion"><i class="fa fa-circle-o"></i>{{$s->nombre_sitio}}</a></li>
+            <li><a href="{{url('control-pagina/'.$s['id'])}}" class="paginacion"><i class="fa fa-circle-o"></i>{{$s['nombre_sitio']}}</a></li>
           @endforeach
           </ul>
         </li>

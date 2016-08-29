@@ -25,13 +25,13 @@
     <label>Categoria</label>
     <select class="form-control" name="categoria">
     <?php foreach($categorias as $c): ?>
-      <option value="<?php echo e($c->id); ?>"><?php echo e($c->categoria); ?></option>
+      <option value="<?php echo e($c['id']); ?>"><?php echo e($c['categoria']); ?></option>
     <?php endforeach; ?>
     </select>
   </div>
   <div class="form-group">
     <?php foreach($sitios as $s): ?>
-      <input tabindex="1" type="checkbox" name="sitios[]" id="<?php echo e($s->id); ?>" value="<?php echo e($s->id); ?>"> <?php echo e($s->nombre_sitio); ?>
+      <input tabindex="1" type="checkbox" name="sitios[]" id="<?php echo e($s['id']); ?>" value="<?php echo e($s['id']); ?>"> <?php echo e($s['nombre_sitio']); ?>
 
     <?php endforeach; ?>
     </select>

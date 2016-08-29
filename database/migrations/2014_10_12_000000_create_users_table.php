@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('ci')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('id_estado');
-            $table->string('id_unidad');
+            $table->integer('id_estado');
+            $table->integer('id_unidad');
             $table->rememberToken();
             $table->timestamps();
         });

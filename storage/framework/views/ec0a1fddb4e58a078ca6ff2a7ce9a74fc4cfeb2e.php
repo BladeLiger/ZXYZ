@@ -3,6 +3,9 @@
     #trigger{
         color: #fff;
     }
+    .project-description > p{
+        color: #fff !important;
+    }
 </style>
 <div class="todo">
     <?php echo $__env->make('extends.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -158,31 +161,31 @@
                 <!-- Start details for portfolio project 1 -->
                 <div id="single-project">
                     <?php foreach($pubgob as $pg): ?>
-                    <div id="<?php echo e(str_replace(' ', '_', $pg->titulo)); ?>" class="toggleDiv row-fluid single-project">
+                    <div id="<?php echo e(str_replace(' ', '_', $pg['titulo'])); ?>" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                            <img src="data:image/jpeg;base64,<?php echo e($pg->img); ?>">
+                            <img src="data:image/jpeg;base64,<?php echo e($pg['img']); ?>">
                         </div>
                         <div class="span6">
                             <div class="project-description">
                                 <div class="project-title clearfix">
-                                    <h3><?php echo e($pg->titulo); ?></h3>
+                                    <h3><?php echo e($pg['titulo']); ?></h3>
                                     <span class="show_hide close">
                                         <i class="icon-cancel"></i>
                                     </span>
                                 </div>
                                 <div class="project-info">
                                     <div>
-                                        <span>Titulo</span><?php echo e($pg->titulo); ?>e</div>
+                                        <span>Titulo</span><?php echo e($pg['titulo']); ?></div>
                                     <div>
-                                        <span>Publicacion</span><?php echo e($pg->created_at); ?></div>
+                                        <span>Publicacion</span><?php echo e($pg['created_at']); ?></div>
                                     <div>
                                         <span>Descripcion</span>Album</div>
                                     <div>
                                         <span>Link</span>http://examplecomp.com</div>
                                 </div>
-                                <p><?php echo $pg->contenido; ?></p>
+                                <?php /*<p><?php echo substr($pg['contenido'], 0, 200); ?></p>*/ ?>
                                 <center>
-                                   <button class="button button-sp"><a href="">Leer Mas</a></button>
+                                   <button class="button button-sp"><a href="<?php echo e(url('articulo/'.$pg['id'])); ?>">Leer Mas</a></button>
                                 </center>
                             </div>
                         </div>
@@ -417,11 +420,11 @@
                         <?php foreach($pubgob as $p): ?>
                         <li class="span4 mix web">
                             <div class="thumbnail">
-                                <img src="data:image/jpeg;base64,<?php echo e($p->img); ?>" style="width:640px;height:230px;">
-                                <a href="#single-project" class="more show_hide" rel="#<?php echo e(str_replace(' ', '_', $p->titulo)); ?>">
+                                <img src="data:image/jpeg;base64,<?php echo e($p['img']); ?>" style="width:640px;height:230px;">
+                                <a href="#single-project" class="more show_hide" rel="#<?php echo e(str_replace(' ', '_', $p['titulo'])); ?>">
                                     <i class="icon-plus"></i>
                                 </a>
-                                <h3><?php echo e($p->titulo); ?></h3>
+                                <h3><?php echo e($p['titulo']); ?></h3>
                                 <p>Album</p>
                                 <div class="mask"></div>
                             </div>

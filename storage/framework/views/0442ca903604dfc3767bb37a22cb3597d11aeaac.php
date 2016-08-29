@@ -347,7 +347,7 @@
           </a>
           <ul class="treeview-menu">
           <?php foreach($sitios as $s): ?>
-            <li><a href="<?php echo e(url('control-pagina/'.$s->id)); ?>" class="paginacion"><i class="fa fa-circle-o"></i><?php echo e($s->nombre_sitio); ?></a></li>
+            <li><a href="<?php echo e(url('control-pagina/'.$s['id'])); ?>" class="paginacion"><i class="fa fa-circle-o"></i><?php echo e($s['nombre_sitio']); ?></a></li>
           <?php endforeach; ?>
           </ul>
         </li>

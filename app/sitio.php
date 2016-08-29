@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class sitio extends Model
 {
+	//protected $hidden = Array('pivot');
     protected $fillable = [
     	'nombre_sitio',
     	'descripcion',
@@ -13,4 +14,5 @@ class sitio extends Model
     public function publicaciones(){
         return $this->belongsToMany('App\publicaciones');
     }
+    
 }

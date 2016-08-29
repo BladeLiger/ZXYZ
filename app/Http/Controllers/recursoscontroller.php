@@ -9,9 +9,10 @@ use App\Http\Controllers\Controller;
 
 trait recursoscontroller
 {
+    /*nbjbvmdsjbgadklanhvfdnlfñmagbsjsjskslls is : 4d9ee7f26f953c44e8d7b9e90b58b260*/
     public function encriptar($id)//encriptar url
     {
-        $key='sistemas';  // Una clave de codificacion, debe usarse la misma para encriptar y desencriptar
+        $key='4d9ee7f26f953c44e8d7b9e90b58b260';  // Una clave de codificacion, debe usarse la misma para encriptar y desencriptar
         $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $id, MCRYPT_MODE_CBC, md5(md5($key))));
         $encrypted = str_replace(array('+', '/'), array('-', '_'),$encrypted);//sustituimos los caracteres que nos den problemas con las rutas por caracteres que no esten en base64_encode
         return $encrypted; //Devuelve el string encriptado
@@ -19,7 +20,7 @@ trait recursoscontroller
 
     public function desencriptar($idencriptado)//desencrecriptae url
     {
-        $key='sistemas';  // Una clave de codificacion, debe usarse la misma para encriptar y desencriptar
+        $key='4d9ee7f26f953c44e8d7b9e90b58b260';  // Una clave de codificacion, debe usarse la misma para encriptar y desencriptar
         $idencriptado = str_replace(array('-', '_'), array('+', '/'), $idencriptado);//sustituimos nuevamente los caracteres para poder hacer la decodificacion
         $decrypted = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5($key), base64_decode($idencriptado), MCRYPT_MODE_CBC, md5(md5($key))), "\0");
         return $decrypted;  //Devuelve el string desencriptado
@@ -36,7 +37,7 @@ trait recursoscontroller
       return $cadena;
     }
 
-    function gestion_rango($start_date, $end_date, $todays_date)
+   /* function gestion_rango($start_date, $end_date, $todays_date)
 	{
 
 	  $start_timestamp = strtotime($start_date);
@@ -55,5 +56,5 @@ trait recursoscontroller
 	    $end_timestamp_2 = strtotime($end_date_2);
 
 	    return (($start_timestamp_1 <= $end_timestamp_2) && ($end_timestamp_1 >= $start_timestamp_2));
-	}
+	}*/
 }

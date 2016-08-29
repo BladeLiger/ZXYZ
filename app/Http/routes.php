@@ -11,32 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-	$sitios = App\sitio::all();
-	$hoy= date("Y-m-d");
-    $pubgob = App\sitio::find(1)
-            ->publicaciones()
-            ->where('fecha_publicacion','<=',$hoy)
-            ->where('fecha_caducidad','>=',$hoy)
-            ->where('estado_id',3)
-            ->latest()
-            ->take(6)
-            ->get();
-    for ($i=0; $i < sizeof($pubgob) ; $i++) { 
-        $imgfirst = \DB::table('multimedia')//obtenemos la primera imagen
-            ->select('nombre_multimedia','tipo')
-            ->where('id_publicacion',$pubgob[$i]->id)
-            ->first();
-        
-        if (Storage::disk('imagenes')->exists($imgfirst->nombre_multimedia)===false) {
-            return "error no se encuentra la imagen ".$imgfirst->nombre_multimedia;
-        }
-       	//agregamos el atributo al objeto
-        $pubgob[$i]->img=base64_encode(Storage::disk('imagenes')->get($imgfirst->nombre_multimedia));
-        $pubgob[$i]->tipo=$imgfirst->tipo;
-    }
-    return view('welcome',['sitios'=>$sitios,'pubgob'=>$pubgob]);
-});
+Route::get('/','HomeController@welcome');
 
 /*Route::auth();*//*ruta creada por el comando make:auth */
 /*Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);*//*desactivado para convinacion de teclas*/
@@ -67,10 +42,15 @@ Route::group(['middleware' => 'auth'], function(){
 	//control de publicaciones
 	Route::get('control-pagina/{id}',['as'=>'control_pagina','uses'=>'publicacioncontroller@controlpaginas']);
     Route::get('pb-estado/{id}/{id_pagina}','publicacioncontroller@estadopublicacion');
+    Route::get('pb-editar/{id}','publicacioncontroller@editarpub');
+    Route::post('editpub', ['as' => 'postimgs', 'uses' => 'publicacioncontroller@editpub']);
+
 });
 
 
 //paginas Web enlazadas a la gobernacion /...... etc
 	Route::get('/sitio/{id}', 'sitiocontroller@pubxsitio');
+    Route::get('/articulo/{id}', 'sitiocontroller@leerMas');
 
-route::get('pruebaimgs','sitiocontroller@getimgs');
+route::get('ss/{id}','sitiocontroller@getimgs');
+route::get('sss/{id}','sitiocontroller@getimgs2');

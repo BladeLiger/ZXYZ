@@ -15,7 +15,7 @@ class CreatePublicacionesTable extends Migration
         Schema::create('publicaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo')->unique();
-            $table->string('contenido');
+            $table->text('contenido');
             $table->string('fecha_publicacion');
             $table->string('fecha_caducidad');
             $table->integer('id_tipo');

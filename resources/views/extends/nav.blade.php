@@ -96,7 +96,7 @@
                                     <a class="mp-back" href="#">Atras</a>
                                     <ul>
                                     @foreach($sitios as $s)
-                                        <li><a href="{{url('sitio/'.$s->id)}}">{{$s->nombre_sitio}}</a></li>
+                                        <li><a href="{{url('sitio/'.$s['id'])}}">{{$s['nombre_sitio']}}</a></li>
                                     @endforeach
                                     </ul>
                                 </div>

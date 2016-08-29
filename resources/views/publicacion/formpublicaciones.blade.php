@@ -24,13 +24,13 @@
     <label>Categoria</label>
     <select class="form-control" name="categoria">
     @foreach($categorias as $c)
-      <option value="{{$c->id}}">{{$c->categoria}}</option>
+      <option value="{{$c['id']}}">{{$c['categoria']}}</option>
     @endforeach
     </select>
   </div>
   <div class="form-group">
     @foreach($sitios as $s)
-      <input tabindex="1" type="checkbox" name="sitios[]" id="{{$s->id}}" value="{{$s->id}}"> {{$s->nombre_sitio}}
+      <input tabindex="1" type="checkbox" name="sitios[]" id="{{$s['id']}}" value="{{$s['id']}}"> {{$s['nombre_sitio']}}
     @endforeach
     </select>
   </div>

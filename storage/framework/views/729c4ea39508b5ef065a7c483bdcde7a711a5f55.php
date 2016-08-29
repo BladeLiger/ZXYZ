@@ -55,7 +55,7 @@
         <script type="text/javascript" src="<?php echo e(asset('js/jquery.placeholder.js')); ?>"></script>
         <script type="text/javascript" src="<?php echo e(asset('js/jquery.inview.js')); ?>"></script>
         <!-- Load google maps api and call initializeMap function defined in app.js -->
-        <script async="" defer="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap"></script>
+        <!--<script async="" defer="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initializeMap"></script>-->
         <!-- css3-mediaqueries.js for IE8 or older -->
         <!--[if lt IE 9]>
             <script src="js/respond.min.js"></script>
